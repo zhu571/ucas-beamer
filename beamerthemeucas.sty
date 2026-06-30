@@ -104,7 +104,7 @@
 % 取消底部的导航栏
 \setbeamertemplate{navigation symbols}{}
 
-% 设置背景
+% 设置背景（左上 UCAS + 右上 IMP）
 \setbeamertemplate{background canvas}{%
   \ifnum\value{page}=1
     \let\ucasbeamertemplength\ucasbeamerlogoheighttitlepage%
@@ -112,7 +112,10 @@
     \let\ucasbeamertemplength\ucasbeamerlogoheight%
   \fi
   \leavevmode\hskip\ucasbeamermargin%
-  \includegraphics[height=\ucasbeamertemplength]{\ucasbeamerfilenamelogo}
+  \includegraphics[height=\ucasbeamertemplength]{\ucasbeamerfilenamelogo}%
+  \hfill%
+  \includegraphics[height=\ucasbeamertemplength]{\ucasbeamerfilenamesublogo}%
+  \hskip\ucasbeamermargin%
 }
 
 % 设置页脚的信息（姓名、题目、日期、页码）
@@ -132,7 +135,7 @@
   \vrule width 0pt height \ucasbeamerfootlineheight%
          depth \ucasbeamerfootlinebottompadding}
 
-% 设置扉页
+% 设置扉页（去掉中央 sublogo，仅保留右上角）
 \setbeamertemplate{title page}{%
   \vfill
   \begin{center}
@@ -146,14 +149,6 @@
     \medskip
 
     {\usebeamerfont{institute} \insertinstitute}%
-    \medskip
-
-    \includegraphics%
-    [
-      width=.6\textwidth,
-      height=.15\textheight,
-      keepaspectratio
-    ]{\ucasbeamerfilenamesublogo}%
     \vfill
 
     {\usebeamerfont{date}\centering \insertdate}%
